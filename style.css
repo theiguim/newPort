@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'Gonzi';
-    src: url('/img/GonziExpandedPERSONALUSE-RegularItalic.otf');
+    src: url('./img/GonziExpandedPERSONALUSE-RegularItalic.otf');
 }
 
 @font-face {
     font-family: 'Gonzi-light';
-    src: url('/img/GonziExpandedPERSONALUSE-LightItalic.otf');
+    src: url('./img/GonziExpandedPERSONALUSE-LightItalic.otf');
 }
 
 
