@@ -242,7 +242,6 @@ body {
     display: flex;
     color: white;
     /* background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 90%); */
-    /* background-color: #f5f54d; */
     background-color: black;
     padding: 0 10vw;
     box-sizing: border-box;
@@ -565,15 +564,15 @@ color: white;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0 10vw;
-        /* gap: 20vh; */
+        padding: 20vh 10vw;
+        gap: 20vh;
     }
 
     #sec4 .action{
         justify-content: end;
     }
     #sec4 .sec4-links{
-        align-items: center;
+        align-items: start;
     }
 
     #sec4 h1 {
@@ -779,8 +778,6 @@ color: white;
         width: 200px;
         font-size: 12px;
     }
-
-
 
     #sec4 h2 {
         font-size: 35px;
