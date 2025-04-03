@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
 @font-face {
     font-family: 'Gonzi';
     src: url('/img/GonziExpandedPERSONALUSE-RegularItalic.otf');
-  }
+}
+
+@font-face {
+    font-family: 'Gonzi-light';
+    src: url('/img/GonziExpandedPERSONALUSE-LightItalic.otf');
+}
 
 
 * {
@@ -48,67 +54,70 @@ body {
 
 }
 
-#sec1{
+#sec1 {
     background-image: url(avatar.jpg);
     background-size: cover;
     background-position: 0% 30%;
     color: white;
 }
 
-#sec1 h1{
-        font-size: 30px;
-        width: 60vw;
-        font-weight: 500;
-        padding: 0;
-        margin: 0;
-        text-align: center; 
+#sec1 h1 {
+    font-size: 30px;
+    width: 60vw;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
-.faixa{
+.faixa {
     position: absolute;
-    left: 100%; 
+    left: 100%;
     font-size: 40px;
     font-family: "Gonzi";
-    white-space: nowrap; 
+    white-space: nowrap;
     opacity: 0.5;
 }
 
 .faixa-sec1 {
     bottom: 0px;
-    animation: marquee-inverse 10s linear infinite; 
+    animation: marquee-inverse 10s linear infinite;
 }
 
 .faixa-sec2 {
     top: 0;
-    animation: marquee 10s linear infinite; 
+    animation: marquee 10s linear infinite;
 }
 
-.faixa-sec1:hover{
-    animation: marquee 60s linear infinite; 
+.faixa-sec1:hover {
+    animation: marquee 60s linear infinite;
 }
 
-.faixa-sec2:hover{
-    animation: marquee 60s linear infinite; 
+.faixa-sec2:hover {
+    animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee {
     from {
         left: 0;
     }
+
     to {
         left: -100%;
     }
 }
+
 @keyframes marquee-inverse {
     from {
         right: 0;
     }
+
     to {
         right: -100%;
     }
 }
 
-.btn{
+.btn {
     padding: 15px;
     border: none;
     border-radius: 25px;
@@ -117,15 +126,15 @@ body {
     cursor: pointer;
 }
 
-.btn_work{
-background-color: #f5f54d;
-color: black;
+.btn_work {
+    background-color: #f5f54d;
+    color: black;
 }
 
-.btn_contact{
-background-color: rgba(255, 255, 255, 0);
-border: 2px solid #f5f54da6;
-color: white;
+.btn_contact {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #f5f54da6;
+    color: white;
 }
 
 
@@ -159,7 +168,7 @@ color: white;
     min-width: 30vw;
 }
 
-.hologram{
+.hologram {
     width: 300px;
     position: absolute;
     bottom: 8%;
@@ -169,7 +178,7 @@ color: white;
     transition: transform 0.3s ease-in-out;
 }
 
-.hologram:hover{
+.hologram:hover {
     transform: scale(1.2) !important;
     animation: none;
 }
@@ -179,14 +188,16 @@ color: white;
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-.ast{
+.ast {
     width: 100px;
 }
+
 .info>p {
     text-align: justify;
     letter-spacing: 1.5px;
@@ -194,7 +205,7 @@ color: white;
     line-height: 1.5em;
 }
 
-.btn_info{
+.btn_info {
     margin-top: 50px;
     border: 2px solid black;
     background-color: black;
@@ -206,7 +217,7 @@ color: white;
     position: relative;
 }
 
-.skills .img-skills{
+.skills .img-skills {
     background-image: url(avatar.jpg);
     background-size: cover;
     width: 30vw;
@@ -214,7 +225,7 @@ color: white;
     position: relative;
 }
 
-.img-skills p{
+.img-skills p {
     position: absolute;
     bottom: -3vw;
     right: -8vw;
@@ -224,15 +235,40 @@ color: white;
 }
 
 
+
+
+
 #sec4 {
     display: flex;
-    background-color: rgb(14, 14, 14);
-    color: white; 
+    color: white;
+    /* background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 90%); */
+    /* background-color: #f5f54d; */
+    background-color: black;
+    padding: 0 10vw;
+    box-sizing: border-box;
 }
 
-.action{
+#sec4 .action {
+    flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.action h1 {
+    font-family: 'Gonzi-light';
+    font-size: 70px;
+    max-width: 600px;
+    text-align: center;
+    font-weight: 400;
+}
+.btn_work_sec4{
+background-color: #f5f54d;
+color: black;
+}
+.btn_contact_sec4{
+background-color: transparent;
+border: 2px solid  #f5f54d;
+color: white;
 }
 
 #sec4>.sec4-links {
@@ -241,7 +277,6 @@ color: white;
     align-items: start;
     flex: 1;
     gap: 50px;
-
 }
 
 #sec4>.sec4-links>div {
@@ -249,42 +284,32 @@ color: white;
     flex-direction: column;
 }
 
-
-
-#sec4>h1 {
-    flex: 1;
+.sec4-links h2 {
+    font-family: 'Gonzi-light';
     font-size: 40px;
-    font-weight: 500;
-}
-
-#sec4 a {
-    font-weight: 400;
-    font-style: none;
-    color: white;
-    text-decoration-color: black;
-    text-decoration: none;
-}
-
-#sec4 a:hover {
-    /* background-color: gray; */
-} 
-
-#sec4 h2 {
-    font-family: "Old Standard TT", serif;
-    font-weight: 200;
-    font-size: 50px;
     margin-bottom: 10px;
 }
 
-#sec4 a {
+.sec4-links a {
     display: flex;
     flex-direction: column;
     font-size: 15px;
     margin: 0 0 3px 5px;
-    font-weight: 400;
-    /* text-decoration: underline; */
     cursor: pointer;
+    font-family: 'Gonzi-light';
+    font-style: none;
+    color: white;
+    text-decoration: none;
+
+    transition: .3s;
 }
+.sec4-links a:hover {
+    background-color: #f5f54d;
+    color: black;
+    transform: scale(1.1);
+}
+
+
 
 
 
@@ -465,21 +490,19 @@ color: white;
     #sec1 h1 {
         font-size: 30px;
         width: 70vw;
-    } 
+    }
+    .action h1  {
+        font-size: 50px;
+    }
 
-    #sec4 h1 {
-        font-size: 65px;
+    #sec4{
+        padding: 0;
     }
 }
 
 @media(max-width: 950px) {
-
     #sec2 div>.elements {
         width: 90%;
-    }
-
-    #sec4 h1 {
-        font-size: 60px;
     }
 }
 
@@ -501,15 +524,16 @@ color: white;
         justify-content: end;
         margin-bottom: 5vh;
     }
-    .info p{
+
+    .info p {
         font-size: 18px;
     }
 
-    .ast{
+    .ast {
         width: 80px;
     }
 
-    .btn_info{
+    .btn_info {
         margin: 20px auto 0 auto;
     }
 
@@ -518,25 +542,44 @@ color: white;
         margin: auto;
     }
 
-    .hologram{
+    .hologram {
         width: 300px;
         bottom: 20%;
         right: 10%;
     }
-    .skills .img-skills{
+
+    .skills .img-skills {
         width: 320px;
         height: 320px;
     }
-    
-    .img-skills p{
+
+    .img-skills p {
         bottom: -60px;
         right: -150px;
         width: 200px;
         font-size: 13px;
     }
 
-    
 
+    #sec4 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10vw;
+        /* gap: 20vh; */
+    }
+
+    #sec4 .action{
+        justify-content: end;
+    }
+    #sec4 .sec4-links{
+        align-items: center;
+    }
+
+    #sec4 h1 {
+        font-size: 50px;
+        align-content: end;
+    }
 
 
 
@@ -570,17 +613,6 @@ color: white;
         background-color: rgb(255, 255, 255);
         border: 0.5px solid rgba(0, 0, 0, 0.363);
     }
-
-    #sec4 {
-        flex-direction: column;
-        gap: 20vh;
-    }
-
-    #sec4 h1 {
-        font-size: 50px;
-        align-content: end;
-    }
-
 }
 
 @media(max-width: 720px) {
@@ -611,11 +643,11 @@ color: white;
 @media(max-width: 650px) {
 
     #sec2 div>.elements {
-      
+
         gap: 15%;
-    /* background-color: red; */
+        /* background-color: red; */
     }
-    
+
     #sec2 .elements>div {
         flex: 1;
         flex-direction: column;
@@ -625,12 +657,13 @@ color: white;
         /* background-color: green; */
     }
 
-    .hologram{
+    .hologram {
         width: 250px;
         bottom: 30%;
         right: 10%;
     }
-    .ast{
+
+    .ast {
         width: 70px;
     }
 
@@ -641,12 +674,12 @@ color: white;
         line-height: 1.2em;
     }
 
-    .skills .img-skills{
+    .skills .img-skills {
         width: 280px;
         height: 280px;
     }
-    
-    .img-skills p{
+
+    .img-skills p {
         bottom: -40px;
         right: -80px;
         width: 200px;
@@ -654,13 +687,7 @@ color: white;
     }
 
 
-    #sec4 {
-        height: 100dvh;
-    }
 
-    #sec2 h3 {
-        font-size: 15px;
-    }
 
     #sec3 {
         justify-content: end;
@@ -711,51 +738,42 @@ color: white;
         width: 37dvh;
     }
 
-    #sec4 h1 {
-        font-size: 40px;
-    }
-
-    #sec4 h2 {
-        font-size: 40px;
-    }
-
-    #sec4 p {
-        font-size: 15px;
-    }
 }
 
 @media(max-width: 450px) {
-  
-    .faixa{
+
+    .faixa {
         font-size: 35px;
     }
+
     .faixa-sec1 {
-        animation: marquee-inverse 5s linear infinite; 
+        animation: marquee-inverse 5s linear infinite;
     }
-    
+
     .faixa-sec2 {
-        animation: marquee 5s linear infinite; 
+        animation: marquee 5s linear infinite;
     }
 
     #sec2>div>.elements {
         /* gap: 10%; */
     }
 
-    .hologram{
+    .hologram {
         width: 200px;
         bottom: 35%;
         right: 0%;
     }
-    .ast{
+
+    .ast {
         width: 60px;
     }
 
-    .skills .img-skills{
+    .skills .img-skills {
         width: 250px;
         height: 250px;
     }
-    
-    .img-skills p{
+
+    .img-skills p {
         bottom: -40px;
         right: -80px;
         width: 200px;
@@ -764,7 +782,9 @@ color: white;
 
 
 
-
+    #sec4 h2 {
+        font-size: 35px;
+    }
 
 
 
@@ -802,29 +822,27 @@ color: white;
         font-size: 13px;
     }
 
-    #sec4 h2 {
-        font-size: 35px;
-    }
+ 
 }
 
 @media(max-width: 375px) {
 
-    .btn_info{
-       width: 250px;
+    .btn_info {
+        width: 250px;
     }
 
-    .skills .img-skills{
+    .skills .img-skills {
         width: 220px;
         height: 220px;
     }
-    
-    .img-skills p{
+
+    .img-skills p {
         font-size: 11px;
     }
-    
 
 
-  
+
+
 
 
     .gridContent>h3 {
@@ -839,8 +857,8 @@ color: white;
         font-size: 10px;
     }
 
-    .gridBtn a{
-       font-size: 10px;
+    .gridBtn a {
+        font-size: 10px;
     }
 
 }

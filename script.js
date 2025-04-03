@@ -75,7 +75,8 @@ const byeTxt = document.querySelector("#byeTxt");
 
 const txtMain = "OLÁ, MEU NOME É IGOR SANDRO, EU SOU WEBDESIGNER E DESENVOLVEDOR";
 const txtInfo = "Sou especialista em websites interativos e páginas de venda. Meu objetivo é criar páginas que transmitam ideias, objetivos e que vendam de verdade, sem abrir mão da beleza, modernidade e interatividade.";
-const txtBye = "VAMOS CRIAR ALGO JUNTOS?"
+// const txtBye = "VAMOS CRIAR ALGO JUNTOS?"
+const txtBye = "Vamos criar algo juntos?"
 
 const subTxt = document.querySelector("#subTxt");
 const slideSkill = document.querySelector("#slideSkill");
