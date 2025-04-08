@@ -1,3 +1,22 @@
+
+document.querySelectorAll('.gridElement').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      const logo = element.querySelector('.grid-logo');
+      const desktop = element.querySelector('.grid-desktop');
+      if (logo) logo.style.opacity = '1';
+      if (desktop) desktop.style.transform = 'scale(1.09)';
+
+    });
+
+    element.addEventListener('mouseleave', () => {
+      const logo = element.querySelector('.grid-logo');
+      const desktop = element.querySelector('.grid-desktop');
+      if (logo) logo.style.opacity = '0.4';
+      if (desktop) desktop.style.transform = 'scale(1)';
+      
+    });
+  });
+
 function changeImageWidth(){
     const img1 = document.getElementById("img1");
     const img2 = document.getElementById("img2");
@@ -17,18 +36,6 @@ function changeImageWidth(){
 window.onload = changeImageWidth;
 window.onresize = changeImageWidth;
 
-const clickGridElement = document.querySelectorAll(".gridElement");
-clickGridElement.forEach(element=>{
-    element.addEventListener("click", ()=> {
-
-        const activeElement = document.querySelector(".gridElement.active");
-
-        if(activeElement && activeElement !== element){
-            activeElement.classList.remove("active");
-        }
-        element.classList.toggle("active")
-    })
-})
 
 
 const container = document.querySelector('.container');
