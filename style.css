@@ -57,7 +57,7 @@ body {
 }
 
 #sec1 {
-    background-image: url(avatar.jpg);
+    background-image: url(images/avatar.jpg);
     background-size: cover;
     background-position: 0% 30%;
     color: white;
@@ -224,7 +224,7 @@ body {
 }
 
 .skills .img-skills {
-    background-image: url(avatar.jpg);
+    background-image: url(images/avatar.jpg);
     background-size: cover;
     width: 30vw;
     height: 30vw;
@@ -243,7 +243,7 @@ body {
 
 #sec3 {
      /* background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 90%); */
-     background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 60%);
+     background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 70%);
 }
 
 #sec3 .grid {
