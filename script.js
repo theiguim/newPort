@@ -1,43 +1,3 @@
-
-document.querySelectorAll('.gridElement').forEach(element => {
-    element.addEventListener('mouseenter', () => {
-      const logo = element.querySelector('.grid-logo');
-      const desktop = element.querySelector('.grid-desktop');
-      if (logo) logo.style.opacity = '1';
-      if (desktop) desktop.style.transform = 'scale(1.09)';
-
-    });
-
-    element.addEventListener('mouseleave', () => {
-      const logo = element.querySelector('.grid-logo');
-      const desktop = element.querySelector('.grid-desktop');
-      if (logo) logo.style.opacity = '0.4';
-      if (desktop) desktop.style.transform = 'scale(1)';
-      
-    });
-  });
-
-function changeImageWidth(){
-    const img1 = document.getElementById("img1");
-    const img2 = document.getElementById("img2");
-    const img3 = document.getElementById("img3");
-
-    if(window.innerWidth <= 650){
-        img1.src = "./images/blackbrianDesktop.png";
-        img2.src = "./images/granempDesktop.png";
-        img3.src = "./images/malibuDesktop.png";
-    }else{
-        img1.src = "./images/blackbrian.png";
-        img2.src = "./images/granemp.png";
-        img3.src = "./images/malibu.png"
-    }
-}
-
-window.onload = changeImageWidth;
-window.onresize = changeImageWidth;
-
-
-
 const container = document.querySelector('.container');
 
 container.addEventListener('wheel', (event) => {
@@ -136,3 +96,119 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(section => observer.observe(section));
+
+
+const track = document.querySelector('.carousel-track');
+const items = Array.from(document.querySelectorAll('.carousel-item'));
+const leftBtn = document.querySelector('.nav.left');
+const rightBtn = document.querySelector('.nav.right');
+
+let currentIndex = 1;
+let autoplayInterval = null;
+let userInteracted = false;
+let interactionTimeout;
+
+function updateCarousel() {
+    items.forEach((item) => item.classList.remove('active'));
+
+    const prev = (currentIndex - 1 + items.length) % items.length;
+    const next = (currentIndex + 1) % items.length;
+
+    // Limpa o track e adiciona os 3 elementos visíveis
+    track.innerHTML = '';
+    track.append(items[prev], items[currentIndex], items[next]);
+
+    items[currentIndex].classList.add('active');
+}
+
+function goToNext() {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+}
+
+function goToPrev() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+}
+
+// Controles
+leftBtn.addEventListener('click', () => {
+    pauseAutoplay();
+    goToPrev();
+});
+
+rightBtn.addEventListener('click', () => {
+    pauseAutoplay();
+    goToNext();
+});
+
+// Drag com mouse
+let isMobile = window.innerWidth <= 1050;
+let startCoord = 0;
+
+track.addEventListener('mousedown', (e) => {
+    startCoord = isMobile ? e.clientY : e.clientX;
+});
+
+track.addEventListener('mouseup', (e) => {
+    const endCoord = isMobile ? e.clientY : e.clientX;
+    const diff = endCoord - startCoord;
+
+    if (isMobile) {
+        if (diff > 50) {
+            pauseAutoplay();
+            goToPrev(); // para cima
+        } else if (diff < -50) {
+            pauseAutoplay();
+            goToNext(); // para baixo
+        }
+    } else {
+        if (diff > 50) {
+            pauseAutoplay();
+            goToPrev(); // para esquerda
+        } else if (diff < -50) {
+            pauseAutoplay();
+            goToNext(); // para direita
+        }
+    }
+});
+
+track.addEventListener('touchstart', (e) => {
+    startCoord = isMobile ? e.touches[0].clientY : e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', (e) => {
+    const endCoord = isMobile ? e.changedTouches[0].clientY : e.changedTouches[0].clientX;
+    const diff = endCoord - startCoord;
+
+    if (isMobile) {
+        if (diff > 50) {
+            pauseAutoplay();
+            goToPrev();
+        } else if (diff < -50) {
+            pauseAutoplay();
+            goToNext();
+        }
+    }
+});
+
+// Autoplay
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        if (!userInteracted) {
+            goToNext();
+        }
+    }, 2000); // muda a cada 4 segundos
+}
+
+function pauseAutoplay() {
+    userInteracted = true;
+    clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(() => {
+        userInteracted = false;
+    }, 5000); // 5s depois da última interação, retoma o autoplay
+}
+
+// Inicializa tudo
+updateCarousel();
+// startAutoplay();
