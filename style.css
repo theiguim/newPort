@@ -240,108 +240,74 @@ body {
 }
 
 
-#sec3 {
-    /* background: radial-gradient(circle, #f5f54d 0%, #0e0e0e 70%); */
-    background-color: #0e0e0e;
+#sec3 {}
 
-}
-
-
-#sec3 {
-    background-color: #0e0e0e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    /* height: 100vh; */
-
-    position: relative;
-}
-
-.carousel-container {
-    display: flex;
-    align-items: center;
-    /* position: relative; */
+#sec3 .grid-content {
+    height: 100vh;
     width: 100vw;
-    overflow: hidden;
-}
-
-.carousel-track {
     display: flex;
-    transition: transform 0.5s ease;
-    gap: 2vw;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    flex-direction: row;
+    gap: 0;
 
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
-.carousel-item {
-    flex: 0 0 30vw;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.6;
-    transform: scale(0.9);
-    pointer-events: none;
-
-    height: 90vh;
-}
-
-.carousel-item.active {
-    transform: scale(1.2);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.gridElement {
+.grid-head {
+    flex: 1;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* position: relative; */
+    justify-content: start;
 }
 
 .grid-desktop {
-    height: 25vw;
-    transition: 0.5s;
+    width: 65%;
+    margin-top: -10%;
 }
 
 .grid-logo {
-    width: 17vw;
-    opacity: 0.2;
-    position: absolute;
-    top: 0;
-    transition: 0.5s;
+    width: 40%;
 }
 
-.carousel-item.active .grid-logo {
+.grid-video {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.g-video {
+    width: 90%;
+}
+
+.grid-video {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s ease;
+  }
+  
+  .grid-head {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s ease;
+  }
+  
+  /* animação quando visível */
+  .grid-video.show {
     opacity: 1;
-}
-
-.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    color: white;
-    font-size: 3rem;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    user-select: none;
-}
-
-.nav.left {
-    left: 1rem;
-}
-
-.nav.right {
-    right: 1rem;
-}
-
+    transform: translateX(0);
+  }
+  
+  .grid-head.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
 #sec4 {
     display: flex;
@@ -452,69 +418,24 @@ body {
         font-size: 50px;
     }
 
-    #sec3{
-        position: relative;
-    }
-  .gridElement{
-    
-  }
-    .carousel-container {
-        flex-direction: column;
-        align-items: center;
-
-        max-height: 100vh;
+    #sec3 .grid-content {
+        flex-direction: column-reverse;
     }
 
-    .carousel-track {
-        flex-direction: column;
-        gap:12vh;
-        height: 100%;
-    }
-
-    .carousel-item {
-        flex: 0 0 auto;
-        width: 30vh;
-        height: 10vh;
+    .grid-head {
+        flex-direction: row;
     }
 
     .grid-desktop {
-        height: auto;
-        /* width: 90%; */
-
-        height: 38vw;
+        width: 40%;
     }
 
     .grid-logo {
-        /* width: 60%; */
-
-        width: 22vw;
-        top: auto;
-        left: -50px;
-        position: absolute !important;
+        width: 30%;
     }
 
-    .nav {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        height: 100vw;
-        width: 100px;
-        text-align: center;
-        font-size: 80px;
-        color: rgba(255, 255, 255, 0.308);
-    }
-
-    .nav.left {
-        transform: rotate(90deg);
-        left: 0;
-       
-    }
-
-    .nav.right {
-        transform: rotate(90deg);
-        right: 0;
+    .g-video {
+        width: 60%;
     }
 
     #sec4 {
@@ -653,14 +574,29 @@ body {
     }
 
 
+    .grid-head {
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .grid-desktop {
-        height: 30vh;
+        width: 60%;
+        margin-top: 0 !important;
     }
 
     .grid-logo {
-        opacity: 0.8;
+        width: 30%;
+        margin-top: 10%;
+        margin-bottom: -20%;
     }
 
+    .grid-video{
+        align-items: center;
+    }
+
+    .g-video {
+        width: 80%;
+    }
 }
 
 @media(max-width: 450px) {

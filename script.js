@@ -98,117 +98,24 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 
 
-const track = document.querySelector('.carousel-track');
-const items = Array.from(document.querySelectorAll('.carousel-item'));
-const leftBtn = document.querySelector('.nav.left');
-const rightBtn = document.querySelector('.nav.right');
-
-let currentIndex = 1;
-let autoplayInterval = null;
-let userInteracted = false;
-let interactionTimeout;
-
-function updateCarousel() {
-    items.forEach((item) => item.classList.remove('active'));
-
-    const prev = (currentIndex - 1 + items.length) % items.length;
-    const next = (currentIndex + 1) % items.length;
-
-    // Limpa o track e adiciona os 3 elementos visíveis
-    track.innerHTML = '';
-    track.append(items[prev], items[currentIndex], items[next]);
-
-    items[currentIndex].classList.add('active');
-}
-
-function goToNext() {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-}
-
-function goToPrev() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-}
-
-// Controles
-leftBtn.addEventListener('click', () => {
-    pauseAutoplay();
-    goToPrev();
-});
-
-rightBtn.addEventListener('click', () => {
-    pauseAutoplay();
-    goToNext();
-});
-
-// Drag com mouse
-let isMobile = window.innerWidth <= 1050;
-let startCoord = 0;
-
-track.addEventListener('mousedown', (e) => {
-    startCoord = isMobile ? e.clientY : e.clientX;
-});
-
-track.addEventListener('mouseup', (e) => {
-    const endCoord = isMobile ? e.clientY : e.clientX;
-    const diff = endCoord - startCoord;
-
-    if (isMobile) {
-        if (diff > 50) {
-            pauseAutoplay();
-            goToPrev(); // para cima
-        } else if (diff < -50) {
-            pauseAutoplay();
-            goToNext(); // para baixo
-        }
-    } else {
-        if (diff > 50) {
-            pauseAutoplay();
-            goToPrev(); // para esquerda
-        } else if (diff < -50) {
-            pauseAutoplay();
-            goToNext(); // para direita
-        }
-    }
-});
-
-track.addEventListener('touchstart', (e) => {
-    startCoord = isMobile ? e.touches[0].clientY : e.touches[0].clientX;
-});
-
-track.addEventListener('touchend', (e) => {
-    const endCoord = isMobile ? e.changedTouches[0].clientY : e.changedTouches[0].clientX;
-    const diff = endCoord - startCoord;
-
-    if (isMobile) {
-        if (diff > 50) {
-            pauseAutoplay();
-            goToPrev();
-        } else if (diff < -50) {
-            pauseAutoplay();
-            goToNext();
-        }
-    }
-});
-
-// Autoplay
-function startAutoplay() {
-    autoplayInterval = setInterval(() => {
-        if (!userInteracted) {
-            goToNext();
-        }
-    }, 2000); // muda a cada 4 segundos
-}
-
-function pauseAutoplay() {
-    userInteracted = true;
-    clearTimeout(interactionTimeout);
-    interactionTimeout = setTimeout(() => {
-        userInteracted = false;
-    }, 5000); // 5s depois da última interação, retoma o autoplay
-}
-
-// Inicializa tudo
-updateCarousel();
-// startAutoplay();
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target.querySelector('.grid-video');
+        const head = entry.target.querySelector('.grid-head');
+  
+        if (video) video.classList.add('show');
+        if (head) head.classList.add('show');
+      }
+    });
+  }, {
+    root: document.querySelector('.container'), // container com overflow-x
+    threshold: 0.5
+  });
+  
+  // Observar todas as seções
+  document.querySelectorAll('.sec').forEach(section => {
+    observer2.observe(section);
+  });
+  
+  
