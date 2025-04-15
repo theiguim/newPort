@@ -576,7 +576,7 @@ body {
 
     .grid-head {
         flex-direction: column;
-        justify-content: center;
+        justify-content: end;
     }
 
     .grid-desktop {
@@ -595,7 +595,7 @@ body {
     }
 
     .g-video {
-        width: 80%;
+        width: 90%;
     }
 }
 
