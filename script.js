@@ -58,37 +58,28 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const sectionIndex = [...sections].indexOf(entry.target);
 
-            switch (sectionIndex) {
-                case 0:
+            switch (entry.target.id) {
+                case "sec1":
                     writeText(mainTxt, txtMain, 25, hasWrittenMain);
-                    subTxt.style.transform = "translateY(0)";
-                    subTxt.style.opacity = "1";
-                    spn[0].style.opacity = "1"
                     break;
-                case 1:
+                case "sec2":
                     writeText(infoTxt, txtInfo, 0, hasWrittenInfo);
-                    slideSkill.style.transform = "translateY(0)";
-                    slideSkill.style.opacity = "1";
-                    spn[1].style.opacity = "1"
                     break;
-                case 2:
-                    gridElement.forEach((element)=>{
+                case "sec3":
+                    gridElement.forEach((element) => {
                         element.style.transform = "translateX(0)";
                         element.style.opacity = "1";
                     });
-                    spn[2].style.opacity = "1"
                     break;
-                case 3:
+                case "sec4":
                     writeText(byeTxt, txtBye, 25, hasWrittenBye);
                     slideElement.forEach((element) => {
-                        element.style.transform = "translateY(0)"
-                        element.style.opacity = "1"
+                        element.style.transform = "translateY(0)";
+                        element.style.opacity = "1";
                     });
-                    spn[3].style.opacity = "1"
                     break;
-                default:
-                    return;
             }
+            
         }
     });
 }, {
@@ -98,24 +89,24 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 
 
-const observer2 = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const video = entry.target.querySelector('.grid-video');
-        const head = entry.target.querySelector('.grid-head');
+// const observer2 = new IntersectionObserver((entries) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         const video = entry.target.querySelector('.grid-video');
+//         const head = entry.target.querySelector('.grid-head');
   
-        if (video) video.classList.add('show');
-        if (head) head.classList.add('show');
-      }
-    });
-  }, {
-    root: document.querySelector('.container'), // container com overflow-x
-    threshold: 0.5
-  });
+//         if (video) video.classList.add('show');
+//         if (head) head.classList.add('show');
+//       }
+//     });
+//   }, {
+//     root: document.querySelector('.container'), // container com overflow-x
+//     threshold: 0.5
+//   });
   
-  // Observar todas as seções
-  document.querySelectorAll('.sec').forEach(section => {
-    observer2.observe(section);
-  });
+//   // Observar todas as seções
+//   document.querySelectorAll('.sec').forEach(section => {
+//     observer2.observe(section);
+//   });
   
   
